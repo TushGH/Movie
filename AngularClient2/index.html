@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="app.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<body>
+<h2> The Movie API UI </h2>
+<div class="well">
+<H3 class = ".text-primary" > Please Enter Data To Add New Movie </h3>
+<br>
+
+<form>
+<div ng-app="myApp" ng-controller="myCtrl as ctrl">
+    <div class="form-group">
+	<label for="exampleFormControlInput1">ID</label>
+	<input type="text" class="form-control" ng-model="id" >
+	<div>
+	<div class="form-group">
+	<label for="exampleFormControlInput2">Title</label>		
+	<input type="text" ng-model="title" class="form-control" >
+	</div>
+	<div class="form-group">
+	<label for="exampleFormControlInput2">Director</label>			
+	<input type="text" ng-model="director" class="form-control">
+	</div>
+   
+</form>
+</div>
+  <button ng-click="ctrl.add(id, title, director);" name="button"  type="button" class="btn btn-success" >Add</button>
+  <button ng-click="ctrl.retrieve();" name="button" type="button"  class="btn btn-success" >Retrieve Price</button>
+
+  <br><br>
+  <H3> List of Movie  in API </h3>
+  <br><br>
+
+  <table class="table table-dark">
+  <tr>
+  <th scope="col" >Id</th>
+  <th scope="col">Title</th>
+  <th scope="col">Director</th>
+  </tr>
+  <tr ng-repeat="q in movies">
+  	<td scope="col" >{{q.id}}</td>
+  	<td scope="col">{{q.title}}</td>
+    <td scope="col">{{q.director}}</td>
+   	</tr>
+  </table>
+
+
+
+</div>
+
+</body>
+</html>
